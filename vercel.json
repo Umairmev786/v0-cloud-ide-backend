@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "buildCommand": "cd backend && npm install && npm run build",
+  "outputDirectory": "backend/dist",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "installCommand": "cd backend && npm install",
+  "functions": {
+    "backend/api/**/*.ts": {
+      "runtime": "nodejs22.x"
+    }
+  }
+}
